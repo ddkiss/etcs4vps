@@ -1,0 +1,12 @@
+[Unit] 
+Description=Caddy HTTP/2 web server 
+After=syslog.target 
+After=network.target
+
+[Service]
+Restart=on-failure
+ExecStart=/usr/local/bin/caddy -conf=/etc/caddy/Caddyfile
+LimitNOFILE=64000
+
+[Install]
+WantedBy=multi-user.target
