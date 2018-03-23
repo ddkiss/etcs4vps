@@ -1,5 +1,4 @@
 #!bin/bash
-apt-get install curl
 mkdir /etc/caddy
 mkdir /etc/ssl/caddy
 mkdir /var/www
@@ -9,3 +8,4 @@ nano /etc/caddy/Caddyfile
 systemctl daemon-reload
 systemctl enable caddy.service
 systemctl start caddy.service
+systemctl status caddy.service
