@@ -1,4 +1,3 @@
-#!/bin/bash
 #!bin/bash
 mkdir /etc/v2ray
 mkdir /var/log/v2ray
