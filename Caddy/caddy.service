@@ -5,7 +5,7 @@ After=network.target
 
 [Service]
 Restart=on-failure
-ExecStart=/usr/local/bin/caddy -conf=/etc/caddy/Caddyfile
+ExecStart=/usr/local/bin/caddy -agree=true -conf=/etc/caddy/Caddyfile
 LimitNOFILE=64000
 
 [Install]
