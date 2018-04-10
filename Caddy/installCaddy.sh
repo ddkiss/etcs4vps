@@ -2,7 +2,7 @@
 mkdir /etc/caddy
 mkdir /etc/ssl/caddy
 mkdir /var/www
-curl https://getcaddy.com | bash -s personal curl http.forwardproxy
+curl https://getcaddy.com | bash -s personal http.forwardproxy
 curl -s https://raw.githubusercontent.com/ddkiss/etcs4vps/master/Caddy/caddy.service -o /etc/systemd/system/caddy.service
 nano /etc/caddy/Caddyfile
 ulimit -n 8192
