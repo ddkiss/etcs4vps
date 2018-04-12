@@ -1,10 +1,14 @@
 [Unit] 
 Description=Caddy HTTP/2 web server 
-After=syslog.target 
-After=network.target
+After=network-online.target
+Wants=network-online.target systemd-networkd-wait-online.service
 
 [Service]
-Restart=on-failure
+Restart=on-abnormal
+
+; Letsencrypt-issued certificates will be written to this directory.
+Environment=CADDYPATH=/etc/ssl/caddy
+
 ExecStart=/usr/local/bin/caddy -agree=true -conf=/etc/caddy/Caddyfile
 LimitNOFILE=64000
 
