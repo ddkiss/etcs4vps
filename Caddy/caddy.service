@@ -1,16 +1,15 @@
 [Unit] 
 Description=Caddy HTTP/2 web server 
-After=network-online.target
-Wants=network-online.target systemd-networkd-wait-online.service
+After=network.target
+Wants=network.target
 
 [Service]
-Restart=on-abnormal
-
-; Letsencrypt-issued certificates will be written to this directory.
-Environment=CADDYPATH=/etc/ssl/caddy
-
-ExecStart=/usr/local/bin/caddy -agree=true -conf=/etc/caddy/Caddyfile
-LimitNOFILE=64000
+Type=simple
+PIDFile=/var/run/caddy.pid
+ExecStart=/usr/local/bin/caddy -conf=/etc/caddy/Caddyfile -agree=true -ca=https://acme-v02.api.letsencrypt.org/directory
+RestartPreventExitStatus=23
+Restart=always
+User=root
 
 [Install]
 WantedBy=multi-user.target
