@@ -11,6 +11,7 @@ useradd --system \
 	--shell /usr/sbin/nologin \
 	--comment "Caddy web server" \
 	caddy
+mkdir /etc/caddy
 touch /etc/caddy/Caddyfile
 cat>/etc/caddy/Caddyfile<<EOF
 127.0.0.1:81
