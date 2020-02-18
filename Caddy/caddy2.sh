@@ -12,10 +12,11 @@ useradd --system \
 	--comment "Caddy web server" \
 	caddy
 mkdir /etc/caddy
+mkdir /var/www
 touch /etc/caddy/Caddyfile
 cat>/etc/caddy/Caddyfile<<EOF
 127.0.0.1:81
-root /var/www
+root * /var/www
 EOF
 curl -s https://raw.githubusercontent.com/caddyserver/dist/master/init/caddy.service -o /etc/systemd/system/caddy.service
 systemctl daemon-reload
