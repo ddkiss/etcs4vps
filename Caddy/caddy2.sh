@@ -17,6 +17,7 @@ touch /etc/caddy/Caddyfile
 cat>/etc/caddy/Caddyfile<<EOF
 127.0.0.1:81
 root * /var/www
+file_server
 EOF
 curl -s https://raw.githubusercontent.com/caddyserver/dist/master/init/caddy.service -o /etc/systemd/system/caddy.service
 systemctl daemon-reload
