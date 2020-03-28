@@ -1,6 +1,6 @@
 #!/bin/bash
-wget https://github.com/caddyserver/caddy/releases/download/v2.0.0-beta.15/caddy2_beta15_linux_amd64
-mv ./caddy2_beta15_linux_amd64 /usr/bin/caddy
+wget https://github.com/caddyserver/caddy/releases/download/v2.0.0-beta.20/caddy2_beta20_linux_amd64
+mv ./caddy2_beta20_linux_amd64 /usr/bin/caddy
 chmod -R 777 /usr/bin/caddy
 caddy version
 groupadd --system caddy
