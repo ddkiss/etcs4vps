@@ -13,11 +13,9 @@ useradd --system \
 	caddy
 mkdir /etc/caddy
 mkdir /var/www
-touch /etc/caddy/Caddyfile
-cat>/etc/caddy/Caddyfile<<EOF
-127.0.0.1:81
-root * /var/www
-file_server
+touch /etc/caddy/Caddy.json
+cat>/etc/caddy/Caddy.json<<EOF
+{"apps":{"http":{"servers":{"example":{"listen":["127.0.0.1:81"],"routes":[{"handle":[{"handler":"vars","root":"/var/www"},{"handler":"file_server"$}]}]}}}}}
 EOF
 touch /etc/systemd/system/caddy.service
 cat>/etc/systemd/system/caddy.service<<EOF
@@ -29,8 +27,8 @@ After=network.target
 [Service]
 User=caddy
 Group=caddy
-ExecStart=/usr/bin/caddy run --config /etc/caddy/Caddyfile --adapter caddyfile --environ
-ExecReload=/usr/bin/caddy reload --config /etc/caddy/Caddyfile --adapter caddyfile
+ExecStart=/usr/bin/caddy run --config /etc/caddy/Caddy.json --environ
+ExecReload=/usr/bin/caddy reload --config /etc/caddy/Caddy.json
 TimeoutStopSec=5s
 LimitNOFILE=1048576
 LimitNPROC=512
