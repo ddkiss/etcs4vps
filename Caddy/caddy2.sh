@@ -15,7 +15,7 @@ mkdir /etc/caddy
 mkdir /var/www
 touch /etc/caddy/Caddy.json
 cat>/etc/caddy/Caddy.json<<EOF
-{"apps":{"http":{"servers":{"example":{"listen":["127.0.0.1:81"],"routes":[{"handle":[{"handler":"vars","root":"/var/www"},{"handler":"file_server"$}]}]}}}}}
+{"apps":{"http":{"servers":{"example":{"listen":["127.0.0.1:81"],"routes":[{"handle":[{"handler":"vars","root":"/var/www"},{"handler":"file_server"}]}]}}}}}
 EOF
 touch /etc/systemd/system/caddy.service
 cat>/etc/systemd/system/caddy.service<<EOF
