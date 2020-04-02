@@ -24,7 +24,8 @@ cat <<EOF > /etc/caddy/caddyfile
 email ${SSLMAIL}
 }
 http://127.0.0.1:81,
-${HOSTNAME}{
+${HOSTNAME}
+{
 root * /var/www
 file_server
 }
