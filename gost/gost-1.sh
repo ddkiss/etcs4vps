@@ -2,7 +2,7 @@
 read -p "host name?" HOSTNAME
 read -p "pwd?" PPWD
 read -p "gost version(ex 2.11.0)?" VERNO
-read -p "ssport?" S1PROT
+read -p "ssport?" S1PORT
 read -p "s5port?" S2PORT
 
 
