@@ -2,6 +2,9 @@
 read -p "host name?" HOSTNAME
 read -p "pwd?" PPWD
 read -p "gost version(ex 2.11.0)?" VERNO
+read -p "ssport?" S1PROT
+read -p "s5port?" S2PORT
+
 
 echo "download gost"
 wget https://github.com/ginuerzh/gost/releases/download/v${VERNO}/gost-linux-amd64-${VERNO}.gz
@@ -19,7 +22,7 @@ cat <<EOF > /etc/systemd/system/gost.service
 [Unit]
 DescriptiON=gost
 [Service]
-ExecStart=/usr/bin/gost/gost -L=ss://AEAD_CHACHA20_POLY1305:${PPWD}@:156 -L=socks5+tls://dd:${PPWD}@${HOSTNAME}:993?cert=/usr/bin/gost/cert.pem&key=/usr/bin/gost/key.pem
+ExecStart=/usr/bin/gost/gost -L=ss://AEAD_CHACHA20_POLY1305:${PPWD}@:${S1PORT} -L=socks5+tls://dd:${PPWD}@${HOSTNAME}:${S2PORT}?cert=/usr/bin/gost/cert.pem&key=/usr/bin/gost/key.pem
 Restart=always
 User=root
 [Install]
