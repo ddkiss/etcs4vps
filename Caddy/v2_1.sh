@@ -1,9 +1,10 @@
 #!/bin/bash
-read -p "caddyLast?(ex: v2.0.0-beta.20/caddy2_beta20_linux_amd64)" CURI
+read -p "caddyLas_subDir(2.0.0-rc.2)" CURI1
 read -p "host name?" HOSTNAME
 read -p "eamil? " SSLMAIL
 
-wget https://github.com/caddyserver/caddy/releases/download/${CURI} -O caddy
+wget https://github.com/caddyserver/caddy/releases/download/v${CURI}/caddy_${CURI}_linux_amd64.tar.gz
+tar -xzvf caddy_${CURI}_linux_amd64.tar.gz
 mv ./caddy /usr/bin/caddy
 chmod -R 777 /usr/bin/caddy
 caddy version
