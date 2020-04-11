@@ -44,9 +44,7 @@ cat <<EOF > /etc/v2ray/config.json
             }
         },
         {
-            "port": ${
-                SPORT
-            },
+            "port": ${SPORT},
             "tag": "ss",
             "protocol": "shadowsocks",
             "settings": {
