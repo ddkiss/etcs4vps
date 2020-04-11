@@ -1,5 +1,5 @@
 #!/bin/bash
-read -p "caddyLas_subDir(2.0.0-rc.2)" CURI1
+read -p "caddyLas_subDir(2.0.0-rc.2)" CURI
 read -p "host name?" HOSTNAME
 read -p "eamil? " SSLMAIL
 
@@ -29,7 +29,7 @@ ${HOSTNAME}
 {
 root * /var/www
 file_server
-reverse_proxy /pconf/* localhost:10029
+reverse_proxy /pconf localhost:10029
 }
 EOF
 
