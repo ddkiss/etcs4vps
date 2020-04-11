@@ -1,5 +1,5 @@
 #!/bin/sh
-read -p "host name?" HOSTNAME
+#read -p "host name?" HOSTNAME
 read -p "pwd?" PPWD
 read -p "gost version(ex 2.11.0)?" VERNO
 read -p "ssport?" S1PORT
@@ -21,9 +21,9 @@ echo "Generate /etc/gost/config.json"
 cat <<EOF > /etc/gost/config.json
 {
     "ServeNodes": [
-        "ss://AEAD_CHACHA20_POLY1305:sdddddS@:156",
-        "ssu://AEAD_CHACHA20_POLY1305:sdddddS@:156",
-        "socks5+tls://dd:sdddddS@:993"
+        "ss://AEAD_CHACHA20_POLY1305:${PPWD}@:${S1PORT}",
+        "ssu://AEAD_CHACHA20_POLY1305:${PPWD}@:${S1PORT}",
+        "socks5+tls://dd:${PPWD}@:${S2PORT}"
     ]
 }
 EOF
