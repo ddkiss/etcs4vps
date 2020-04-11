@@ -29,7 +29,7 @@ ${HOSTNAME}
 {
 root * /var/www
 file_server
-reverse_proxy /pconf/* localhost:993
+reverse_proxy /pconf/* localhost:10029
 }
 EOF
 
