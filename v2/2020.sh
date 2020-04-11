@@ -33,18 +33,20 @@ cat <<EOF > /etc/v2ray/config.json
                 ]
             },
             "streamSettings": {
-                "network": "http",
+                "network": "ws",
                 "security": "none",
-                "httpSettings": {
-                    "host": [
-                        "${HOSTNAME}"
-                    ],
-                    "path": "/pconf"
+                "wsSettings": {
+                    "path": "/pconf",
+                    "headers": {
+                        "Host": "${HOSTNAME}"
+                    }
                 }
             }
         },
         {
-            "port": ${SPORT},
+            "port": ${
+                SPORT
+            },
             "tag": "ss",
             "protocol": "shadowsocks",
             "settings": {
