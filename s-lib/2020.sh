@@ -1,6 +1,5 @@
 #!/bin/sh
 read -p "server?(0.0.0.0) " HOSTNAME
-read -p "nameserver?(1.1.1.1) " NS
 read -p "port? " SPORT
 read -p "pwd? " PPWD
 echo "Generate /snap/shadowsocks-libev/config.json"
@@ -12,7 +11,6 @@ cat <<EOF > /snap/shadowsocks-libev/config.json
     "timeout":60,
     "method":"chacha20-ietf-poly1305",
     "fast_open":false,
-    "nameserver":"@{NS}",
     "mode":"tcp_and_udp"
 }
 EOF
