@@ -11,19 +11,16 @@ cat <<EOF > /snap/gost/config.json
     ],
 	"ChainNodes": [
         "${METHOD2}"
-     ]
-#    ],
-#	"Routes": [
-#        {
-#            "Retries": 1,
-#            "ServeNodes": [
-#                "ws://:1443"
-#            ],
-#            "ChainNodes": [
-#                "socks://:192.168.1.1:1080"
-#            ]
-#        }        
-#    ]
+    ],
+	"Routes": [
+        {
+            "Retries": 1,
+            "ServeNodes": [
+            ],
+            "ChainNodes": [           
+            ]
+        }        
+    ]
 }
 EOF
 echo "Generate /etc/systemd/system/gost.service"
