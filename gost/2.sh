@@ -1,5 +1,5 @@
 #!/bin/sh
-read -p "-L method?(tcp://:993" METHOD1
+read -p "-L method?(tcp://:993)" METHOD1
 read -p "-F method?(relay://:990)" METHOD2
 echo "install gost"
 snap install gost
