@@ -9,7 +9,7 @@ cat <<EOF > /snap/shadowsocks-libev/config.json
     "server_port":${SPORT},
     "password":"${PPWD}",
     "timeout":60,
-    "method":"chacha20-ietf-poly1305",
+    "method":"aes-128-gcm",
     "fast_open":false,
     "mode":"tcp_and_udp"
 }
